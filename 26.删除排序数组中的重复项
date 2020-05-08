@@ -1,0 +1,21 @@
+class Solution {
+public:
+    int removeDuplicates(vector<int>& nums) {
+        int i,j;
+        int length=nums.size();
+        if(length==0)//判断数组长度  若为0直接返回
+        return 0;
+        for (i=0;i<nums.size();i++)//采用for循环使指针i不停向前移动
+    {
+        if(nums[i]!=nums[j])
+      {
+        if(i-j>1) //判断快慢指针 若 相邻数组且元素值不同时，虽然也可进行赋值操作，但可以省略该赋值操作，避免无意义操作 提高运行效率
+        {nums[j+1]=nums[i];}
+          j++;
+      } 
+     }
+ return j+1;
+    }
+};
+
+可理解为双指针，快指针和慢指针的概念，i为快指针遍历，j则进行判断
